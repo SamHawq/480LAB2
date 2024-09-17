@@ -22,7 +22,7 @@ public:
     void set_x(float x);
     void set_y(float y);
 
-    int counter(); /* ***************************** */
+    int counter(int inc_dec); /* ***************************** */
     //PROMISES:
     //  returns number of point objects at any given point
 

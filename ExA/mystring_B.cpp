@@ -100,7 +100,7 @@ Mystring& Mystring::operator =(const Mystring& S)
 
 std::ostream& operator<<(std::ostream& os, const Mystring& str) {
     cout << str.charsM; 
-    return o;
+    return os;
 }
 
 bool Mystring::operator>=(const Mystring& str_r) const{

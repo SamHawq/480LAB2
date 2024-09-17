@@ -45,8 +45,8 @@ DictionaryList dictionary_tests()
   assert(dl.size() == 3);
   cout << "\nPrinting list after inserting 3 new keys ...\n";
   print(dl);
-  dl.remove(8002);
-  dl.remove(8001);
+  //dl.remove(8002);
+  //dl.remove(8001);
   dl.insert(8004,"PointyHair"); 
   assert(dl.size() == 2);
   cout << "\nPrinting list after removing two keys and inserting PointyHair ...\n";
@@ -156,8 +156,9 @@ void test_finding(DictionaryList& dl)
 #if 1
 void test_operator_overloading(DictionaryList& dl)
 {
-
     DictionaryList dl2 = dl;
+    cout << dl.cursor_key() << endl;
+    cout << dl2.cursor_key() << endl;
     dl.go_to_first();
     dl.step_fwd();
     dl2.go_to_first();
