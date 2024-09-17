@@ -88,7 +88,7 @@ void Mystring::set_char(int pos, char c)
 Mystring& Mystring::operator =(const Mystring& S)
 {
   if(this == &S)
-    return *this;
+  return *this;
   delete [] charsM;
   lengthM = (int)strlen(S.charsM);
   charsM = new char [lengthM+1];
@@ -103,13 +103,8 @@ std::ostream& operator<<(std::ostream& os, const Mystring& str) {
     return os;
 }
 
-int operator>=(const char *str1, const char *str2) {
-    int cmp = strcmp(str1, str2);
-    if(cmp >= 0){
-      return 1;
-    )else{
-      return 0;
-    }
+bool Mystring::operator>=(const Mystring& str_r) const{
+    return strcmp(this->charsM, str_r.charsM) >= 0;
 }
 	
 

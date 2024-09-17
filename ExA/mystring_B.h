@@ -14,7 +14,7 @@ class Mystring {
 
 public:
   friend std::ostream& operator<<(std::ostream& os, const Mystring& str);
-  friend std::ostream& operator>=(const char *str1, const char *str2);
+  bool operator>=(const Mystring& str_r) const;
   
   Mystring();
   // PROMISES: Empty string object is created.
