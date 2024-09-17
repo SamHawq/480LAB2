@@ -99,11 +99,18 @@ Mystring& Mystring::operator =(const Mystring& S)
 }
 
 std::ostream& operator<<(std::ostream& os, const Mystring& str) {
-    return os << str.charsM; 
+    cout << str.charsM; 
+    return o;
 }
 
 bool Mystring::operator>=(const Mystring& str_r) const{
-    return strcmp(this->charsM, str_r.charsM) >= 0;
+    if(this == &str_r)
+      return true;
+    else if (this->lengthM >= str_r.lengthM)
+      return true;
+    else
+    return false;
+
 }
 	
 
