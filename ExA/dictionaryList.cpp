@@ -151,6 +151,7 @@ void DictionaryList::go_to_first()
 void DictionaryList::step_fwd()
 {
     assert(cursor_ok());
+    
     cursorM = cursorM->nextM;
 }
 
@@ -167,38 +168,28 @@ void DictionaryList::make_empty()
 // find, destroy and copy, in order to allow successful linking when you're
 // testing insert and remove. Replace them with the definitions that work.
 
-void DictionaryList::find(const Key& keyA)
-{
-   if (headM == 0 || keyA < headM -> keyM){
-      cursorM = 0;
-   };
-    
-    Node *found_node = 0;
-    
-    if (keyA == headM-> keyM) {
-        found_node = headM;
-        headM = headM->nextM;
-        cursorM = found_node;
-    }
-    else {
-        Node *before = headM;
-        Node *maybe_found = headM->nextM;
-        while(maybe_found != 0 && keyA > maybe_found-> keyM) {
-            before = maybe_found;
-            maybe_found = maybe_found->nextM;
-        }
-        
-        if (maybe_found != 0 && maybe_found->keyM == keyA) {
-            cursorM = maybe_found;
-            before->nextM = maybe_found->nextM;
-      
-        }
-        
-        
-    } 
+void DictionaryList::find(const Key& keyA) {
+    cursorM = nullptr;  // Reset the cursor before searching
 
-    
+    if (headM == nullptr || keyA < headM->keyM) {
+        return;  // If the list is empty or the key is smaller than the first key, we don't find it
+    }
+
+    Node *current = headM;  // Start from the head
+    Node *before = nullptr;
+
+    // Traverse the list to find the key
+    while (current != nullptr && current->keyM < keyA) {
+        before = current;
+        current = current->nextM;
+    }
+
+    // Check if we found the key
+    if (current != nullptr && current->keyM == keyA) {
+        cursorM = current;  // Set cursorM to the node where the key was found
+    }
 }
+
 
 
 void DictionaryList::destroy()
