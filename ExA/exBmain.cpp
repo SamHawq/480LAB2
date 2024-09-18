@@ -45,8 +45,8 @@ DictionaryList dictionary_tests()
   assert(dl.size() == 3);
   cout << "\nPrinting list after inserting 3 new keys ...\n";
   print(dl);
-  //dl.remove(8002);
-  //dl.remove(8001);
+  dl.remove(8002);
+  dl.remove(8001);
   dl.insert(8004,"PointyHair"); 
   assert(dl.size() == 2);
   cout << "\nPrinting list after removing two keys and inserting PointyHair ...\n";
