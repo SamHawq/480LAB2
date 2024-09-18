@@ -16,8 +16,8 @@ public:
     //      X-coordinate: #####.##
     //      Y-coordinate: #####.##
 
-    float get_x(float x) const;
-    float get_y(float y) const;
+    float get_x() const;
+    float get_y() const;
 
     void set_x(float x);
     void set_y(float y);
