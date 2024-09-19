@@ -112,6 +112,14 @@ bool Mystring::operator>=(const Mystring& str_r) const{ //just length?
     return false;
 
 }
+
+bool Mystring::operator!=(const Mystring& S) const
+{
+  if(this == &S)
+    return false;
+  else
+    return true;
+}
 	
 
 Mystring& Mystring::append(const Mystring& other)
