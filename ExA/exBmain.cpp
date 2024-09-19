@@ -162,8 +162,16 @@ void test_operator_overloading(DictionaryList& dl)
     dl.go_to_first();
     dl.step_fwd();
     dl2.go_to_first();
+<<<<<<< Updated upstream
     cout << dl.cursor_datum() << endl;
     cout << dl2.cursor_datum() << endl;
+=======
+    cout << dl.cursor_key() << endl;
+     cout << dl2.cursor_key() << endl;
+    std::cout << "dl cursor: " << (dl.cursor_ok() ? "valid" : "nullptr") << std::endl;
+    std::cout << "dl2 cursor: " << (dl2.cursor_ok() ? "valid" : "nullptr") << std::endl;
+
+>>>>>>> Stashed changes
 
     cout << "\nTesting a few comparison and insertion operators." << endl;
     
