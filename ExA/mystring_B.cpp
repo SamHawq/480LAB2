@@ -103,7 +103,7 @@ std::ostream& operator<<(std::ostream& os, const Mystring& str) {
     return os;
 }
 
-bool Mystring::operator>=(const Mystring& str_r) const{
+bool Mystring::operator>=(const Mystring& str_r) const{ //just length?
     if(this == &str_r)
       return true;
     else if (this->lengthM >= str_r.lengthM)

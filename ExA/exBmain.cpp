@@ -162,11 +162,13 @@ void test_operator_overloading(DictionaryList& dl)
     dl.go_to_first();
     dl.step_fwd();
     dl2.go_to_first();
+    cout << dl.cursor_datum() << endl;
+    cout << dl2.cursor_datum() << endl;
 
     cout << "\nTesting a few comparison and insertion operators." << endl;
     
     // Needs to overload >= and << (insertion operator) in class Mystring
-    if(dl.cursor_datum() >= (dl2.cursor_datum()))
+    if(dl2.cursor_datum() >= (dl.cursor_datum()))
        cout << endl << dl.cursor_datum() << " is greater than or equal " << dl2.cursor_datum();
     else
        cout << endl << dl2.cursor_datum() << " is greater than " << dl.cursor_datum();
