@@ -10,7 +10,7 @@ public:
     Point(const float& x, const float& y, const int& id);
     ~Point(); // ? unnecessary?
 
-    char* display() const;
+    void display() const;
     //PROMISES:
     //  returns x and y coordinates in the below format
     //      X-coordinate: #####.##
@@ -26,7 +26,7 @@ public:
     //PROMISES:
     //  returns number of point objects at any given point
 
-    static float distance_x(float point1, float point2);
+    static float distance_x(float point1, float point2); // check static functionality
     float distance_y(float point1, float point2);
 
 };
