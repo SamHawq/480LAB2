@@ -15,6 +15,10 @@ class Mystring {
 public:
   friend std::ostream& operator<<(std::ostream& os, const Mystring& str);
   bool operator>=(const Mystring& str_r) const;
+  bool operator<=(const Mystring& str_r) const;
+  bool operator<(const Mystring& str_r) const;
+  bool operator>(const Mystring& str_r) const;
+  bool operator==(const Mystring& str_r) const;
   bool operator!=(const Mystring& S) const;
   
   Mystring();

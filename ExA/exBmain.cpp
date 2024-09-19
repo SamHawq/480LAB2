@@ -169,15 +169,20 @@ void test_operator_overloading(DictionaryList& dl)
     
     // Needs to overload >= and << (insertion operator) in class Mystring
     if(dl2.cursor_datum() >= (dl.cursor_datum()))
-       cout << endl << dl.cursor_datum() << " is greater than or equal " << dl2.cursor_datum();
+       cout << endl << dl.cursor_datum() << " is greater than or equal to " << dl2.cursor_datum() << endl;
     else
-       cout << endl << dl2.cursor_datum() << " is greater than " << dl.cursor_datum();
+       cout << endl << dl2.cursor_datum() << " is greater than " << dl.cursor_datum()<<endl;
     
-    /* ******************************
     // Needs to overload <= for Mystring
     if(dl.cursor_datum() <= (dl2.cursor_datum()))
-        cout << dl.cursor_datum() << " is less than or equal" << dl2.cursor_datum();
+        cout << dl.cursor_datum() << " is less than or equal to " << dl2.cursor_datum()<<endl;
     else
+        cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum()<<endl;
+        
+    if(dl.cursor_datum() != (dl2.cursor_datum()))
+      cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
+    else
+        cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
         cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum();
     */
     if(dl.cursor_datum() != (dl2.cursor_datum()))
@@ -195,12 +200,13 @@ void test_operator_overloading(DictionaryList& dl)
         cout << endl << dl.cursor_datum() << " is less than " << dl2.cursor_datum();
     else
         cout << endl << dl.cursor_datum() << " is not less than " << dl2.cursor_datum();
+
     if(dl.cursor_datum() == (dl2.cursor_datum()))
         cout << endl << dl.cursor_datum() << " is equal to " << dl2.cursor_datum();
     else
         cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
    cout << endl << "\nUsing square bracket [] to access elements of Mystring objects. ";
-
+/* ******************************
     char c = dl.cursor_datum()[1];
     cout << endl << "The socond element of "  << dl.cursor_datum() << " is: " << c;
     
