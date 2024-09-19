@@ -19,7 +19,9 @@ public:
   bool operator<(const Mystring& str_r) const;
   bool operator>(const Mystring& str_r) const;
   bool operator==(const Mystring& str_r) const;
-  bool operator!=(const Mystring& S) const;
+  bool operator!=(const Mystring& str_r) const;
+  char operator[](int i) const;
+  char& operator[](int i);
   
   Mystring();
   // PROMISES: Empty string object is created.

@@ -171,26 +171,25 @@ void test_operator_overloading(DictionaryList& dl)
     if(dl2.cursor_datum() >= (dl.cursor_datum()))
        cout << endl << dl.cursor_datum() << " is greater than or equal to " << dl2.cursor_datum() << endl;
     else
-       cout << endl << dl2.cursor_datum() << " is greater than " << dl.cursor_datum()<<endl;
-    
-    // Needs to overload <= for Mystring
+       cout << endl << dl2.cursor_datum() << " is not greater than or equal to " << dl.cursor_datum()<<endl;
+
     if(dl.cursor_datum() <= (dl2.cursor_datum()))
         cout << dl.cursor_datum() << " is less than or equal to " << dl2.cursor_datum()<<endl;
     else
-        cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum()<<endl;
+        cout << endl << dl2.cursor_datum() << " is not less than or equal to " << dl.cursor_datum()<<endl;
         
     if(dl.cursor_datum() != (dl2.cursor_datum()))
       cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
     else
         cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
         cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum();
-    */
+
     if(dl.cursor_datum() != (dl2.cursor_datum()))
         cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
     else
         cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
     
-    /***************************
+
     if(dl.cursor_datum() > (dl2.cursor_datum()))
         cout << endl << dl.cursor_datum() << " is greater than " << dl2.cursor_datum();
     else
@@ -206,14 +205,14 @@ void test_operator_overloading(DictionaryList& dl)
     else
         cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
    cout << endl << "\nUsing square bracket [] to access elements of Mystring objects. ";
-/* ******************************
+
     char c = dl.cursor_datum()[1];
-    cout << endl << "The socond element of "  << dl.cursor_datum() << " is: " << c;
+    cout << endl << "The second element of "  << dl.cursor_datum() << " is: " << c;
     
     dl.cursor_datum()[1] = 'o';
     c = dl.cursor_datum()[1];
-    cout << endl << "The socond element of "  << dl.cursor_datum() << " is: " << c;
-
+    cout << endl << "The second element of "  << dl.cursor_datum() << " is: " << c;
+    
     cout << endl << "\nUsing << to display key/datum pairs in a Dictionary list: \n";
     /* The following line is expected to display the content of the linked list 
      * dl2 -- key/datum pairs. It should display:
@@ -223,9 +222,7 @@ void test_operator_overloading(DictionaryList& dl)
      *   8004  PointyHair
      */
     
-    /*********************************************************
     cout << dl2;
- 
     cout << endl << "\nUsing [] to display the datum only: \n";
     /* The following line is expected to display the content of the linked list
      * dl2 -- datum. It should display:
@@ -234,8 +231,7 @@ void test_operator_overloading(DictionaryList& dl)
      *   Sam
      *   PointyHair
      */
-    
-    /* ********************************************************
+     
     for(int i =0; i < dl2.size(); i++)
         cout << dl2[i] << endl;
     
@@ -248,8 +244,7 @@ void test_operator_overloading(DictionaryList& dl)
      *   e
      *   n
      */
-
-    /**********************************************************
+    /*
     cout << dl2[0][0] << endl;
     cout << dl2[0][1] << endl;
     cout << dl2[0][2] << endl;
@@ -259,4 +254,5 @@ void test_operator_overloading(DictionaryList& dl)
     cout << "\n\n***----Finished tests for overloading operators ----------***\n\n";
     */
 }
+
 #endif

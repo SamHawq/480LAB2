@@ -47,7 +47,9 @@ public:
   DictionaryList(const DictionaryList& source);
   DictionaryList& operator =(const DictionaryList& rhs);
   ~DictionaryList();
-
+  friend std::ostream& operator<<(std::ostream& os, DictionaryList& dl);
+  char operator[](int i) const;
+  char& operator[](int i);
   int size() const;
   // PROMISES: Returns number of keys in the table.
 
@@ -64,6 +66,7 @@ public:
   // REQUIRES: cursor_ok()
   // PROMISES: Returns datum of key/datum pair to which cursor is attached.
 
+  Datum& cursor_datum();
   void insert(const Key& keyA, const Datum& datumA);
   // PROMISES:
   //   If keyA matches a key in the table, the datum for that

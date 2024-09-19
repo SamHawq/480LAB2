@@ -63,6 +63,10 @@ const Datum& DictionaryList::cursor_datum() const
   assert(cursor_ok());
   return cursorM->datumM;
 }
+Datum& DictionaryList::cursor_datum(){
+  assert(cursor_ok());
+  return cursorM->datumM;
+}
 
 void DictionaryList::insert(const int& keyA, const Mystring& datumA)
 {
@@ -223,5 +227,16 @@ void DictionaryList::copy(const DictionaryList& source) {
         headM = nullptr;
     }
 
+}
+
+
+std::ostream& operator<<(std::ostream& os, DictionaryList& dl) {
+  if (dl.size() == 0)
+    cout << "  List is EMPTY.\n";
+  for (dl.go_to_first(); dl.cursor_ok(); dl.step_fwd()) {
+    cout << "  " << dl.cursor_key();
+    cout << "  " << dl.cursor_datum().c_str() << '\n';
+  }
+  return os;
 }
 

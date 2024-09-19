@@ -103,60 +103,54 @@ std::ostream& operator<<(std::ostream& os, const Mystring& str) {
     return os;
 }
 
-bool Mystring::operator>=(const Mystring& str_r) const{ //just length?
-    if(this == &str_r)
-      return true;
-    else if (this->lengthM >= str_r.lengthM)
-      return true;
-    else
-    return false;
+bool Mystring::operator<=(const Mystring& str_r) const {
+    if (this == &str_r) {
+        return true;  // Same instance, so they are equal
+    }
+    return strcmp(this->charsM, str_r.charsM) <= 0;
 }
 
-bool Mystring::operator<=(const Mystring& str_r) const{
-  if(this == &str_r)
-    return true;
-  else if (this->lengthM <= str_r.lengthM)
-    return true;
-  else
-    return false;
+bool Mystring::operator>=(const Mystring& str_r) const {
+    if (this == &str_r) {
+        return true; 
+    }
+    return strcmp(this->charsM, str_r.charsM) >= 0;
 }
 
 bool Mystring::operator>(const Mystring& str_r) const{
   if(this == &str_r)
     return false;
-  else if (this->lengthM > str_r.lengthM)
-    return true;
-  else
-    return false;
+
+  return strcmp(this->charsM,str_r.charsM) > 0;
 }
 
 bool Mystring::operator<(const Mystring& str_r) const{
   if(this == &str_r)
     return false;
-  else if (this->lengthM < str_r.lengthM)
-    return true;
-  else
-    return false;
+
+  return strcmp(this->charsM,str_r.charsM) < 0;
 }
 
 
 bool Mystring::operator==(const Mystring& str_r) const{
   if(this == &str_r)
     return true;
-  else if (this->lengthM == str_r.lengthM)
-    return true;
-  else  
-    return false;
+  return strcmp(this->charsM, str_r.charsM) == 0;
 }
 
-bool Mystring::operator!=(const Mystring& S) const
+bool Mystring::operator!=(const Mystring& str_r) const
 {
-  if(this == &S)
+  if(this == &str_r)
     return false;
-  else
-    return true;
+  return strcmp(this->charsM, str_r.charsM) != 0;
 }
 	
+char Mystring::operator[](int i) const{
+  return charsM[i];
+}
+char& Mystring::operator[](int i) {
+  return charsM[i];
+}
 
 
 Mystring& Mystring::append(const Mystring& other)
