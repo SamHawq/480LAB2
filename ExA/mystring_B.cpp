@@ -110,9 +110,45 @@ bool Mystring::operator>=(const Mystring& str_r) const{ //just length?
       return true;
     else
     return false;
-
 }
-	
+
+bool Mystring::operator<=(const Mystring& str_r) const{
+  if(this == &str_r)
+    return true;
+  else if (this->lengthM <= str_r.lengthM)
+    return true;
+  else
+    return false;
+}
+
+bool Mystring::operator>(const Mystring& str_r) const{
+  if(this == &str_r)
+    return false;
+  else if (this->lengthM > str_r.lengthM)
+    return true;
+  else
+    return false;
+}
+
+bool Mystring::operator<(const Mystring& str_r) const{
+  if(this == &str_r)
+    return false;
+  else if (this->lengthM < str_r.lengthM)
+    return true;
+  else
+    return false;
+}
+
+bool Mystring::operator==(const Mystring& str_r) const{
+  if(this == &str_r)
+    return true;
+  else if (this->lengthM == str_r.lengthM)
+    return true;
+  else  
+    return false;
+}
+
+bool Mystring::operator
 
 Mystring& Mystring::append(const Mystring& other)
 {
