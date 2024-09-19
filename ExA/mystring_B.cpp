@@ -139,6 +139,7 @@ bool Mystring::operator<(const Mystring& str_r) const{
     return false;
 }
 
+
 bool Mystring::operator==(const Mystring& str_r) const{
   if(this == &str_r)
     return true;
@@ -148,7 +149,15 @@ bool Mystring::operator==(const Mystring& str_r) const{
     return false;
 }
 
-bool Mystring::operator
+bool Mystring::operator!=(const Mystring& S) const
+{
+  if(this == &S)
+    return false;
+  else
+    return true;
+}
+	
+
 
 Mystring& Mystring::append(const Mystring& other)
 {

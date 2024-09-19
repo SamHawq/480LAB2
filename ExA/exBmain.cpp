@@ -179,10 +179,18 @@ void test_operator_overloading(DictionaryList& dl)
     else
         cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum()<<endl;
         
-    //if(dl.cursor_datum() != (dl2.cursor_datum()))
-      //  cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
-    //else
-      //  cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
+    if(dl.cursor_datum() != (dl2.cursor_datum()))
+      cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
+    else
+        cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
+        cout << endl << dl2.cursor_datum() << " is less than " << dl.cursor_datum();
+    */
+    if(dl.cursor_datum() != (dl2.cursor_datum()))
+        cout << endl << dl.cursor_datum() << " is not equal to " << dl2.cursor_datum();
+    else
+        cout << endl << dl2.cursor_datum() << " is equal to " << dl.cursor_datum();
+    
+    /***************************
     if(dl.cursor_datum() > (dl2.cursor_datum()))
         cout << endl << dl.cursor_datum() << " is greater than " << dl2.cursor_datum();
     else

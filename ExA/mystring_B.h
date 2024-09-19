@@ -19,6 +19,7 @@ public:
   bool operator<(const Mystring& str_r) const;
   bool operator>(const Mystring& str_r) const;
   bool operator==(const Mystring& str_r) const;
+  bool operator!=(const Mystring& S) const;
   
   Mystring();
   // PROMISES: Empty string object is created.
