@@ -16,7 +16,7 @@ Point::~Point()
     counter(-1);
 }
 
-char* Point::display() const
+void Point::display() const
 {
     cout << "X-coordinate: " << this->get_x() << "\n";
     cout << "Y-coordinate: " << this->get_y() << "\n";
@@ -46,11 +46,11 @@ int Point::counter(int inc_dec)
 {
     static int x;
     x += inc_dec;
-    cout << "\n" << x << "\n";
+    //cout << "\n" << x << "\n";
     return x;
 }
 
-float Point::distance_x(float point1, float point2)
+float Point::distance_x(float point1, float point2) //should be x and y in both funcs?
 {
     static float distance = point1 - point2;
     if(distance < 0)
@@ -72,11 +72,9 @@ main()
     Point coord2(10, 10, 2);
     
     //float x = Point::distance_x(coord1.get_x(), coord2.get_x());
-    //coord1.~Point();
     
-    cout << "Distance along X-axis: " << Point::distance_x(coord1.get_x(), coord2.get_x()) << endl;
-    cout << "Distance along Y-axis: " << coord1.distance_y(coord1.get_y(), coord2.get_y()) << endl;
+    //cout << "Distance along X-axis: " << Point::distance_x(coord1.get_x(), coord2.get_x()) << endl;
+    //cout << "Distance along Y-axis: " << coord1.distance_y(coord1.get_y(), coord2.get_y()) << endl;
     
-    //cout << x << "\n";
-    //cout << coord1.get_x() << "\n";
+    cout << coord1.get_x() << "\n";
 }
