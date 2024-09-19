@@ -12,11 +12,13 @@ class Shape{
 
     ~Shape();
 
+    Shape& operator=(const Shape& other);
+
     Point getOrigin();
 
     char* getName();
 
-    void display();
+    void display() const;
 
     double distance (Shape& other);
 

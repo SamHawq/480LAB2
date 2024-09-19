@@ -1,5 +1,6 @@
 #include "shape.h"
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 Shape::Shape(const char* name, Point &originPoint)
@@ -9,7 +10,14 @@ Shape::Shape(const char* name, Point &originPoint)
 
 Shape::~Shape()
 {
+    delete[] shapeName;
+}
 
+Shape::Shape(const Shape& other)
+    : origin(other.origin) // Copy the Point object
+{
+    shapeName = new char[strlen(other.shapeName) + 1];
+    strcpy(shapeName, other.shapeName);
 }
 
 Point Shape::getOrigin()
