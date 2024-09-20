@@ -244,7 +244,7 @@ void test_operator_overloading(DictionaryList& dl)
      *   e
      *   n
      */
-    /*
+    
     cout << dl2[0][0] << endl;
     cout << dl2[0][1] << endl;
     cout << dl2[0][2] << endl;
@@ -252,7 +252,7 @@ void test_operator_overloading(DictionaryList& dl)
     cout << dl2[0][4] << endl;
     
     cout << "\n\n***----Finished tests for overloading operators ----------***\n\n";
-    */
+    
 }
 
 #endif

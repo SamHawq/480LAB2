@@ -240,3 +240,14 @@ std::ostream& operator<<(std::ostream& os, DictionaryList& dl) {
   return os;
 }
 
+Mystring DictionaryList::operator[](int i) const{
+  if (i < 0 || i >= sizeM){
+    cerr <<"index out of bounds" << endl;
+  }
+  Node *current = headM;
+  for(int count =0; count < i; ++count){
+    current = current->nextM;
+  }
+  return current->datumM;
+}
+
