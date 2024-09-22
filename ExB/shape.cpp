@@ -3,16 +3,21 @@
 #include <string.h>
 using namespace std;
 
-Shape::Shape(const char* name, Point &originPoint)
+//constructor
+Shape::Shape(const char* name, const Point& originPoint)
+    : origin(originPoint) // Initialize origin using initializer list
 {
-
+    shapeName = new char[strlen(name) + 1]; // Allocate memory for shapeName
+    strcpy(shapeName, name);                
 }
 
+//destructor
 Shape::~Shape()
 {
     delete[] shapeName;
 }
 
+// Copy Constructor
 Shape::Shape(const Shape& other)
     : origin(other.origin) // Copy the Point object
 {
@@ -20,20 +25,33 @@ Shape::Shape(const Shape& other)
     strcpy(shapeName, other.shapeName);
 }
 
-Point Shape::getOrigin()
-{
-    return this->display();
+// Copy Assignment Operator
+Shape& Shape::operator=(const Shape& other) {
+    if (this == &other) return *this; // Check for self-assignment
+
+    delete[] shapeName; // Free existing memory
+
+    origin = other.origin; // Copy the Point object
+    shapeName = new char[strlen(other.shapeName) + 1];
+    strcpy(shapeName, other.shapeName);
+
+    return *this;
 }
 
-char* Shape::getName()
+Point Shape::getOrigin() const
+{
+    return origin;
+}
+
+char* Shape::getName() const
 {
     return this->shapeName;
 }
 
-void Shape::display()
+void Shape::display() const
 {
-    cout << "Shape Name: " << this->getName() << "\n";
-    cout << this->getOrigin() << "\n";
+    cout << "Shape Name: " << shapeName << "\n";
+    cout << "Origin: (" << origin.get_x() << ", " << origin.get_y() << ")\n";
 }
 
 double Shape::distance (Shape& other)

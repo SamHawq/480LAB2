@@ -2,25 +2,24 @@
 #include "point.h"
 #include "shape.h"
 
-class Square{
-    private:
-    Point origin;
-    char* shapeName;
+class Square : public Shape{    //square inherits from shape, can use public and protected members of shape
+    private:                    //extends shape class by adding square specific methods
+    double sideA;
 
     public:
     
-    Square(Shape &square);
+    //constructor
+    Square(const char* name, const Point& originPoint, double side);
+
 
     ~Square();
 
-    Point Square::area()
-    {
-        
-    }
+    double area() const;    //square specific method
 
-    Point getOrigin();
+    double perimeter() const;
 
-    char* getName();
+    double getSide_a() const;
+    void setSide_a(double side_a);
 
-    void display();
+    void display() const;
 };

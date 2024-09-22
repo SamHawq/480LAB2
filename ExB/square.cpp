@@ -3,30 +3,41 @@
 #include <iostream>
 using namespace std;
 
-Square::Square(Shape &square)
-{
-
-}
+Square::Square(const char* name, const Point& originPoint, double side)
+    : Shape(name, originPoint), sideA(side) {}
 
 Square::~Square()
 {
-
+// idk if necessary and if so what
 }
 
-Point Square::area()
+double Square::area() const
 {
-    
+    return sideA * sideA;
 }
 
-char* Square::getName()
+double Square::perimeter() const
 {
-    return this->shapeName;
+    return 4 * sideA;
 }
 
-void Square::display()
+double Square::getSide_a() const 
 {
-    cout << "Shape Name: " << this->getName() << "\n";
-    cout << this->getOrigin() << "\n";
+    return sideA;
 }
 
+void Square::setSide_a(double side_a)
+{
+    this->sideA = side_a;
+}
+
+void Square::display() const
+{
+    cout << "Square Name: " << getName() << "\n";
+    cout << "X-coordinate: " << getOrigin().get_x() << "\n";
+    cout << "Y-coordinate: " << getOrigin().get_y() << "\n";
+    cout << "Side a: " << sideA << "\n";
+    cout << "Area: " << area () << "\n";
+    cout << "Perimeter: " << perimeter() << "\n";
+}
 

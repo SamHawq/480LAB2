@@ -7,16 +7,22 @@ class Shape{
     char* shapeName;
 
     public:
-    
-    Shape(const char* name, Point &originPoint);
 
+    //constructor
+    Shape(const char* name, const Point& originPoint);
+
+    //destructor
     ~Shape();
 
-    Shape& operator=(const Shape& other);
+    // Copy Constructor
+    Shape(const Shape& other);
 
-    Point getOrigin();
+    // Copy Assignment Operator
+    Shape& Shape::operator=(const Shape& other);
 
-    char* getName();
+    Point Shape::getOrigin() const;
+
+    char* getName() const;
 
     void display() const;
 
