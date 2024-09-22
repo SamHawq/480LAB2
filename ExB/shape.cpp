@@ -5,7 +5,7 @@ using namespace std;
 
 //constructor
 Shape::Shape(const char* name, const Point& originPoint)
-    : origin(originPoint) // Initialize origin using initializer list
+    : origin(originPoint) 
 {
     shapeName = new char[strlen(name) + 1]; // Allocate memory for shapeName
     strcpy(shapeName, name);                
