@@ -48,8 +48,7 @@ public:
   DictionaryList& operator =(const DictionaryList& rhs);
   ~DictionaryList();
   friend std::ostream& operator<<(std::ostream& os, DictionaryList& dl);
-  char operator[](int i) const;
-  char& operator[](int i);
+  Mystring operator[](int i) const;
   int size() const;
   // PROMISES: Returns number of keys in the table.
 
