@@ -1,24 +1,24 @@
-#include <iostream>
-#include "point.h"
+#ifndef SQUARE_H
+#define SQUARE_H
+
 #include "shape.h"
 
-class Square : public Shape{    //square inherits from shape, can use public and protected members of shape
-    private:                    //extends shape class by adding square specific methods
+class Square : public Shape {
+private:
     double sideA;
 
-    public:
-    
-    //constructor
+public:
     Square(int x, int y, double side, const char* name);
-
     ~Square();
 
-    double area() const;    //square specific method
-
+    Square(const Square& other); // Copy constructor
+    Square& operator=(const Square& other); // Assignment operator
+    
+    double area() const;
     double perimeter() const;
-
     double getSide_a() const;
     void setSide_a(double side_a);
-
-    void display() const;
+    void display() const; 
 };
+
+#endif 

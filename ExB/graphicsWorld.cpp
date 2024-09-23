@@ -77,3 +77,15 @@ int main() {
     gw.run(); // Call the run() method
     return 0; // Return success
 }
+
+//things left to fix
+
+/*
+* distance function in point (just making it calculate hypotenuse?)
+    * make sure tests pass
+* object should have id number attribute 
+    (not in constructor just properly assigned on initialization, 
+    ie 1000 + counter)
+* make sure counter works
+* (note to self) update comments for personal understanding 
+*/

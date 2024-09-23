@@ -1,75 +1,61 @@
 #include "rectangle.h"
-#include "point.h"
 #include "shape.h"
 #include <iostream>
+
 using namespace std;
 
-// Updated constructor
-Rectangle::Rectangle(int x, int y, double sideA, double sideB, const char* name) 
-    : Shape(name, Point(x, y), Point(x + sideA, y + sideB)), // Create Point objects for the shape
-      sideA(sideA), sideB(sideB) {}
+Rectangle::Rectangle(int x, int y, double sideA, double sideB, const char* name)
+    : Shape(name, x, y), sideA(sideA), sideB(sideB) {} // Pass x and y directly to Shape
 
-Rectangle::~Rectangle()
-{
-    // Destructor logic (if needed)
-}
+Rectangle::~Rectangle() {}
 
 Rectangle::Rectangle(const Rectangle& other)
     : Shape(other), // Call the base class copy constructor
-      sideA(other.sideA),
+      sideA(other.sideA), 
       sideB(other.sideB) {}
 
-Rectangle& Rectangle::operator=(const Rectangle& other)
-{
+// Assignment Operator
+Rectangle& Rectangle::operator=(const Rectangle& other) {
     if (this == &other) return *this; // Check for self-assignment
 
     Shape::operator=(other); // Call the base class assignment operator
-
     sideA = other.sideA; // Copy member variables
     sideB = other.sideB;
 
-    return *this;
+    return *this; // Return *this to allow for chained assignments
 }
 
-double Rectangle::area() const
-{
+double Rectangle::area() const {
     return sideA * sideB;
 }
 
-double Rectangle::perimeter() const
-{
-    return (2 * sideB) + (2 * sideA);
+double Rectangle::perimeter() const {
+    return (2 * sideA) + (2 * sideB);
 }
 
-// Side B
-double Rectangle::getSide_b() const 
-{
-    return sideB;
-}
-
-void Rectangle::setSide_b(double side_b)
-{
-    this->sideB = side_b;
-}
-
-// Side A
-double Rectangle::getSide_a() const 
-{
-    return sideA; // Corrected to return sideA
-}
-
-void Rectangle::setSide_a(double side_a)
-{
-    this->sideA = side_a;
-}
-
-void Rectangle::display() const
-{
+void Rectangle::display() const {
     cout << "Rectangle Name: " << getName() << "\n";
-    cout << "X-coordinate: " << get_xPoint().get_x() << "\n"; // Use get_xPoint()
-    cout << "Y-coordinate: " << get_yPoint().get_y() << "\n"; // Use get_yPoint()
+    cout << "X-coordinate: " << get_x() << "\n"; // Use get_x()
+    cout << "Y-coordinate: " << get_y() << "\n"; // Use get_y()
     cout << "Side a: " << sideA << "\n";
     cout << "Side b: " << sideB << "\n";
     cout << "Area: " << area() << "\n";
     cout << "Perimeter: " << perimeter() << "\n";
+}
+
+double Rectangle::getSide_a() const {
+    return sideA; // Return the value of sideA
+}
+
+void Rectangle::setSide_a(double side_a) {
+    sideA = side_a; // Set the value of sideA
+}
+
+// Getters and Setters for sideB
+double Rectangle::getSide_b() const {
+    return sideB; // Return the value of sideB
+}
+
+void Rectangle::setSide_b(double side_b) {
+    sideB = side_b; // Set the value of sideB
 }

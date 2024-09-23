@@ -25,18 +25,18 @@ Point::~Point()
 
 void Point::display() const
 {
-    cout << "X-coordinate: " << this->get_x() << "\n";
-    cout << "Y-coordinate: " << this->get_y() << "\n";
+    cout << "X-coordinate: " << (float)this->get_x() << "\n";
+    cout << "Y-coordinate: " << (float)this->get_y() << "\n";
 }
 
 int Point::get_x() const
 {
-    return this->x;
+    return x;
 }
 
 int Point::get_y() const
 {
-    return this->y;
+    return y;
 }
 
 void Point::set_x(int x)
