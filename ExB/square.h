@@ -9,8 +9,7 @@ class Square : public Shape{    //square inherits from shape, can use public and
     public:
     
     //constructor
-    Square(const char* name, const Point& originPoint, double side);
-
+    Square(int x, int y, double side, const char* name);
 
     ~Square();
 

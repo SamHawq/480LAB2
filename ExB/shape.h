@@ -1,36 +1,42 @@
-#include <iostream>
+#ifndef SHAPE_H
+#define SHAPE_H
+
 #include "point.h"
+#include <iostream>
+#include <cstring>
 
-class Shape{
-    private:
-    Point origin;
+class Shape {
+private:
     char* shapeName;
+    Point xPoint;
+    Point yPoint;
 
-    public:
+public:
+    // Constructor
+    Shape(const char* name, const Point& xPoint, const Point& yPoint);
 
-    //constructor
-    Shape(const char* name, const Point& originPoint);
-
-    //destructor
+    // Destructor
     ~Shape();
 
     // Copy Constructor
     Shape(const Shape& other);
 
-    // Copy Assignment Operator
-    Shape& Shape::operator=(const Shape& other);
+    Shape& operator=(const Shape& other);
 
-    Point Shape::getOrigin() const;
-
+    // Getters
+    Point get_xPoint() const;
+    Point get_yPoint() const;
     char* getName() const;
 
+    // Display function
     void display() const;
 
-    double distance (Shape& other);
+    // Distance function (needs implementation)
+    double distance(Shape& other);
+    double distance(Shape& the_shape, Shape& other);
 
-    static double distance (Shape& the_shape, Shape& other);
-
-    void move (double dx, double dy);
-
-
+    // Move function (needs implementation)
+    void move(double dx, double dy);
 };
+
+#endif // SHAPE_H

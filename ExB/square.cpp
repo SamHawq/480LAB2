@@ -3,8 +3,8 @@
 #include <iostream>
 using namespace std;
 
-Square::Square(const char* name, const Point& originPoint, double side)
-    : Shape(name, originPoint), sideA(side) {}
+Square::Square(int x, int y, double side, const char* name)    
+    : Shape(name, Point(x, y), Point(x + side, y + side)), sideA(side) {}
 
 Square::~Square()
 {
@@ -34,8 +34,8 @@ void Square::setSide_a(double side_a)
 void Square::display() const
 {
     cout << "Square Name: " << getName() << "\n";
-    cout << "X-coordinate: " << getOrigin().get_x() << "\n";
-    cout << "Y-coordinate: " << getOrigin().get_y() << "\n";
+    cout << "X-coordinate: " << get_xPoint().get_x() << "\n";
+    cout << "Y-coordinate: " << get_yPoint().get_y() << "\n";
     cout << "Side a: " << sideA << "\n";
     cout << "Area: " << area () << "\n";
     cout << "Perimeter: " << perimeter() << "\n";

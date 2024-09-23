@@ -1,32 +1,28 @@
-#include <iostream>
+#ifndef POINT_H
+#define POINT_H
 
 class Point {
 private:
-    float x;
-    float y; 
-    int id;
+    int x;
+    int y;
 
 public:
-    Point(const float& x, const float& y, const int& id);
-    ~Point(); // ? unnecessary?
+    Point(const int& x, const int& y);
+    ~Point();
+
+    int get_x() const;
+    int get_y() const;
+    void set_x(int x);
+    void set_y(int y);
 
     void display() const;
-    //PROMISES:
-    //  returns x and y coordinates in the below format
-    //      X-coordinate: #####.##
-    //      Y-coordinate: #####.##
 
-    float get_x() const;
-    float get_y() const;
+    static int distance_x(Point point1, Point point2);
+    static int distance_y(Point point1, Point point2);
+    int distance(const Point& point2);
+    static int distance(Point point1, Point point2);
 
-    void set_x(float x);
-    void set_y(float y);
-
-    int counter(int inc_dec); /* ***************************** */
-    //PROMISES:
-    //  returns number of point objects at any given point
-
-    static float distance_x(float point1, float point2); // check static functionality
-    float distance_y(float point1, float point2);
-
+    static int counter(int inc_dec);
 };
+
+#endif // POINT_H

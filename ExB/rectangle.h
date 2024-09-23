@@ -1,22 +1,17 @@
-#include <iostream>
-#include "point.h"
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
 #include "shape.h"
 
-class Rectangle : public Shape{    //square inherits from shape, can use public and protected members of shape
-    private:                    //extends shape class by adding square specific methods
-    double sideA;
-    double sideB;
-
-    public:
-    
-    //constructor
-    Rectangle(const char* name, const Point& originPoint, double sideA, double sideB);
-
-
+class Rectangle : public Shape {
+public:
+    Rectangle(int x, int y, double sideA, double sideB, const char* name); // Updated constructor
     ~Rectangle();
 
-    double area() const;    //rectangle specific method
+    Rectangle(const Rectangle& other);
+    Rectangle& operator=(const Rectangle& other);
 
+    double area() const;
     double perimeter() const;
 
     double getSide_a() const;
@@ -26,4 +21,10 @@ class Rectangle : public Shape{    //square inherits from shape, can use public 
     void setSide_b(double side_b);
 
     void display() const;
+
+private:
+    double sideA;
+    double sideB;
 };
+
+#endif // RECTANGLE_H

@@ -3,7 +3,8 @@
 #include "shape.h"
 class GraphicsWorld{
     public:
+    void run();
 
     private:
-    void GraphicsWorld::run();
+    
 };

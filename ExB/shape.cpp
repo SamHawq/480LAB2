@@ -1,17 +1,15 @@
 #include "shape.h"
-#include <iostream>
-#include <string.h>
 using namespace std;
 
-//constructor
-Shape::Shape(const char* name, const Point& originPoint)
-    : origin(originPoint) 
+// Constructor
+Shape::Shape(const char* name, const Point& xPoint, const Point& yPoint)
+    : xPoint(xPoint), yPoint(yPoint) 
 {
     shapeName = new char[strlen(name) + 1]; // Allocate memory for shapeName
     strcpy(shapeName, name);                
 }
 
-//destructor
+// Destructor
 Shape::~Shape()
 {
     delete[] shapeName;
@@ -19,28 +17,37 @@ Shape::~Shape()
 
 // Copy Constructor
 Shape::Shape(const Shape& other)
-    : origin(other.origin) // Copy the Point object
+    : xPoint(other.xPoint), yPoint(other.yPoint) // Copy the Point objects
 {
     shapeName = new char[strlen(other.shapeName) + 1];
     strcpy(shapeName, other.shapeName);
 }
 
-// Copy Assignment Operator
-Shape& Shape::operator=(const Shape& other) {
+Shape& Shape::operator=(const Shape& other)
+{
     if (this == &other) return *this; // Check for self-assignment
 
-    delete[] shapeName; // Free existing memory
+    // Free existing resources
+    delete[] shapeName;
 
-    origin = other.origin; // Copy the Point object
-    shapeName = new char[strlen(other.shapeName) + 1];
-    strcpy(shapeName, other.shapeName);
+    // Copy the shape data
+    shapeName = new char[strlen(other.shapeName) + 1]; // Allocate new memory
+    strcpy(shapeName, other.shapeName); // Copy the name
+    xPoint = other.xPoint; // Copy the Point objects
+    yPoint = other.yPoint;
 
-    return *this;
+    return *this; // Return the current object
 }
 
-Point Shape::getOrigin() const
+// Getters
+Point Shape::get_xPoint() const
 {
-    return origin;
+    return xPoint;
+}
+
+Point Shape::get_yPoint() const
+{
+    return yPoint;
 }
 
 char* Shape::getName() const
@@ -48,23 +55,23 @@ char* Shape::getName() const
     return this->shapeName;
 }
 
+// Display function
 void Shape::display() const
 {
     cout << "Shape Name: " << shapeName << "\n";
-    cout << "Origin: (" << origin.get_x() << ", " << origin.get_y() << ")\n";
+    cout << "X Point: (" << xPoint.get_x() << ", " << xPoint.get_y() << ")\n";
+    cout << "Y Point: (" << yPoint.get_x() << ", " << yPoint.get_y() << ")\n";
 }
 
-double Shape::distance (Shape& other)
+// Distance function (to be implemented)
+double Shape::distance(Shape& other)
 {
-
+    // Implementation here
+    return 0; // Placeholder return
 }
 
-double Shape::distance (Shape& the_shape, Shape& other)
+// Move function (to be implemented)
+void Shape::move(double dx, double dy)
 {
-
-}
-
-void Shape::move (double dx, double dy)
-{
-
+    // Implementation here
 }
