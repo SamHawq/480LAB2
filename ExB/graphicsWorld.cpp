@@ -80,7 +80,7 @@ void GraphicsWorld::run(){
 }
 
 int main() {
-    GraphicsWorld gw; // Create an instance of GraphicsWorld
-    gw.run(); // Call the run() method
-    return 0; // Return success
+    GraphicsWorld gw; 
+    gw.run(); 
+    return 0; 
 }

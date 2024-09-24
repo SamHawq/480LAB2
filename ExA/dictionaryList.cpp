@@ -205,7 +205,6 @@ void DictionaryList::destroy()
     headM = headM->nextM;
     delete current;
   }
-  cout << "\ndestructor is called. \n ";
 }
 
 
