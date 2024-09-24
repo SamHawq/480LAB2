@@ -14,7 +14,7 @@ Mystring::Mystring()
 { 
   charsM = new char[1];
 
-  // make sure memory is allocated.
+  
   memory_check(charsM); 
   charsM[0] = '\0';
   lengthM = 0;
@@ -25,7 +25,7 @@ Mystring::Mystring(const char *s)
 {
   charsM = new char[lengthM + 1];
 
- // make sure memory is allocated.
+ 
   memory_check(charsM);
 
   strcpy(charsM, s);
@@ -34,7 +34,7 @@ Mystring::Mystring(const char *s)
 Mystring::Mystring(int n)
   : lengthM(0), charsM(new char[n])
 {
-  // make sure memory is allocated.
+
   memory_check(charsM);
   charsM[0] = '\0';
 }
@@ -107,7 +107,7 @@ std::ostream& operator<<(std::ostream& os, const Mystring& str) {
 
 bool Mystring::operator<=(const Mystring& str_r) const {
     if (this == &str_r) {
-        return true;  // Same instance, so they are equal
+        return true;  
     }
     return strcmp(this->charsM, str_r.charsM) <= 0;
 }
