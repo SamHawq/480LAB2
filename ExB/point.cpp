@@ -1,3 +1,10 @@
+/* 
+* File Name: point.cpp
+* Assignment: Lab 2 Exercise B
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #include "point.h"
 #include "graphicsWorld.h"
 #include <assert.h>
@@ -6,27 +13,36 @@
 using namespace std;
 
 
-/*Point::Point(const float& x, const float& y, const int& id)
-    : x(x), y(y), id(id)
-{
-    counter(1);
-}*/
+int Point::counter = 1000;
 
-Point::Point(const int& x, const int& y)
-    : x(x), y(y)
-{
-    counter(1);
+int Point::counter_func() {
+    return counter - 1000;
 }
 
-Point::~Point()
-{
-    counter(-1);
+//ctor
+Point::Point(int x, int y)
+    : x(x), y(y), id(++counter){}
+
+//dtor
+Point::~Point(){}
+
+
+//DELETE LATER IF NOT NEEDED Point::Point(const Point& other) : x(other.x), y(other.y), id(other.id){}
+
+//assignment op
+Point& Point::operator=(const Point& other) {
+    if (this != &other) {
+        x = other.x;
+        y = other.y;
+        id = other.id;
+    }
+    return *this;
 }
 
 void Point::display() const
 {
-    cout << "X-coordinate: " << (float)this->get_x() << "\n";
-    cout << "Y-coordinate: " << (float)this->get_y() << "\n";
+    cout << "X-coordinate: " << static_cast<double>(x) << ".00\n"; //not formatted in "expected" display
+    cout << "Y-coordinate: " << static_cast<double>(y) << ".00\n";
 }
 
 int Point::get_x() const
@@ -49,15 +65,12 @@ void Point::set_y(int y)
     this->y = y;
 }
 
-int Point::counter(int inc_dec)
+int Point::get_id() const
 {
-    static int x;
-    x += inc_dec;
-    //cout << "\n" << x << "\n";
-    return x;
+    return id;
 }
 
-int Point::distance_x(Point point1, Point point2) //should be x and y in both funcs?
+int Point::distance_x(Point point1, Point point2) 
 {
     int distance = point1.get_x() - point2.get_x();
     if(distance < 0)
@@ -76,14 +89,16 @@ int Point::distance_y(Point point1, Point point2)
 int Point::distance(Point point1, Point point2){
     //cout << "Distance along X-axis: " << distance_x(point1, point2) << endl;
     //cout << "Distance along Y-axis: " << distance_y(point1, point2) << endl;
-    return 0;
+    int distance = distance_x(point1, point2) + distance_y(point1, point2);
+    return distance;
 }
 
 int Point::distance(const Point& point2)
 {
     //cout << "Distance along X-axis: " << distance_x(*this, point2) << endl;
     //cout << "Distance along Y-axis: " << distance_y(*this, point2) << endl;
-    return 0;
+    int distance = distance_x(*this, point2) + distance_y(*this, point2);
+    return distance;
 }
 
 

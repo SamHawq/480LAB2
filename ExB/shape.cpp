@@ -1,68 +1,75 @@
+/* 
+* File Name: shape.cpp
+* Assignment: Lab 2 Exercise B
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #include "shape.h"
 #include <iostream>
-#include <cstring> // Include for strlen and strcpy
+#include <string.h>
 
 using namespace std;
 
-// Constructor
+//ctor
 Shape::Shape(const char* name, int x, int y)
-    : xCoordinate(x), yCoordinate(y) {
+    : origin(x, y)
+{
     shapeName = new char[strlen(name) + 1];
     strcpy(shapeName, name);
 }
 
-// Destructor
-Shape::~Shape() {
+//dtor
+Shape::~Shape() 
+{
     delete[] shapeName;
 }
 
-// Copy Constructor
+//copy ctor
 Shape::Shape(const Shape& other)
-    : xCoordinate(other.xCoordinate), yCoordinate(other.yCoordinate) {
+    : origin(other.origin)
+{
     shapeName = new char[strlen(other.shapeName) + 1];
     strcpy(shapeName, other.shapeName);
 }
 
-Shape& Shape::operator=(const Shape& other) {
-    if (this == &other) return *this;
-
-    delete[] shapeName;
-    shapeName = new char[strlen(other.shapeName) + 1];
-    strcpy(shapeName, other.shapeName);
-    xCoordinate = other.xCoordinate;
-    yCoordinate = other.yCoordinate;
+//assignment op
+Shape& Shape::operator=(const Shape& other) 
+{
+    if (this != &other) {
+        delete[] shapeName;
+        shapeName = new char[strlen(other.shapeName) + 1];
+        strcpy(shapeName, other.shapeName);
+        origin = other.origin;
+    }
 
     return *this;
 }
 
-// Getters
-int Shape::get_x() const {
-    return xCoordinate;
-}
-
-int Shape::get_y() const {
-    return yCoordinate;
-}
-
-char* Shape::getName() const {
+const char* Shape::getName() const {
     return shapeName;
 }
 
-// Display function
+const Point& Shape::getOrigin() const {
+    return origin; 
+}
+
 void Shape::display() const {
     cout << "Shape Name: " << shapeName << "\n";
-    cout << "Coordinates: (" << xCoordinate << ", " << yCoordinate << ")\n";
+    origin.display();
 }
 
-// Distance function
-double Shape::distance(const Shape& other) {
-    int dx = xCoordinate - other.xCoordinate;
-    int dy = yCoordinate - other.yCoordinate;
-    return 0;//sqrt(dx * dx + dy * dy);
+int Shape::distance(const Shape& other) {
+    int distance = origin.distance(other.origin);
+    return distance;
 }
 
-// Move function
+int Shape::distance(const Shape& shape, const Shape& other_shape) {
+    int distance = Point::distance(shape.origin, other_shape.origin);
+    return distance;
+}
+
 void Shape::move(int dx, int dy) {
-    xCoordinate += dx;
-    yCoordinate += dy;
+    origin.set_x(origin.get_x() + dx);
+    origin.set_y(origin.get_y() + dy);
 }

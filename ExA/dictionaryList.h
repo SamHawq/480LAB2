@@ -1,5 +1,10 @@
-// dictionaryList.h
-// ENSF 480 - Lab 2 - Exercise A
+/* 
+* File Name: dictionaryList.h
+* Assignment: Lab 2 Exercise A
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 
 #ifndef DICTIONARY_H
 #define DICTIONARY_H

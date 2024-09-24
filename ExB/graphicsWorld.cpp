@@ -1,3 +1,10 @@
+/* 
+* File Name: graphicsWorld.cpp
+* Assignment: Lab 2 Exercise B
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #include <iostream>
 #include "point.h"
 #include "shape.h"
@@ -26,7 +33,7 @@ void GraphicsWorld::run(){
 #endif // end of block to test Square
 
 #if 1 // Change 0 to 1 to test Rectangle
-    cout << "\nTesting Functions in class Rectangle:";
+    cout << "\nTesting Functions in class Rectangle:" <<endl;
     Rectangle a(5, 7, 12, 15, "RECTANGLE A");
     a.display();
     Rectangle b(16 , 7, 8, 9, "RECTANGLE B");
@@ -81,11 +88,7 @@ int main() {
 //things left to fix
 
 /*
-* distance function in point (just making it calculate hypotenuse?)
-    * make sure tests pass
-* object should have id number attribute 
-    (not in constructor just properly assigned on initialization, 
-    ie 1000 + counter)
-* make sure counter works
-* (note to self) update comments for personal understanding 
+* go through lab doc and make sure little things right
+* make sure coordinate print in proper format
+* add headers w names and dates
 */

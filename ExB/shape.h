@@ -1,3 +1,10 @@
+/* 
+* File Name: shape.h
+* Assignment: Lab 2 Exercise B
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #ifndef SHAPE_H
 #define SHAPE_H
 
@@ -6,22 +13,22 @@
 class Shape {
 private:
     char* shapeName;
-    int xCoordinate; 
-    int yCoordinate; 
+    Point origin; 
 
 public:
     Shape(const char* name, int x, int y);
-    virtual ~Shape();
+    ~Shape();
     Shape(const Shape& other);
     Shape& operator=(const Shape& other);
-    
-    int get_x() const; 
-    int get_y() const; 
-    char* getName() const;
 
-    virtual void display() const;
-    double distance(const Shape& other);
+    const Point& getOrigin() const;
+    const char* getName() const;
+
+    void display() const;
+    int distance(const Shape& other);
+    static int distance(const Shape& shape, const Shape& other_shape); 
+
     void move(int dx, int dy);
 };
 
-#endif 
+#endif

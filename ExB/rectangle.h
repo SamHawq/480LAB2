@@ -1,26 +1,32 @@
+/* 
+* File Name: rectangle.h
+* Assignment: Lab 2 Exercise B
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include "shape.h"
+#include "square.h"
 
-class Rectangle : public Shape {
+class Rectangle : public Square {
 private:
-    double sideA;
-    double sideB;
+    int sideB;
 
 public:
-    Rectangle(int x, int y, double sideA, double sideB, const char* name);
+    Rectangle(int x, int y, int sideA, int sideB, const char* name);
     ~Rectangle();
     Rectangle(const Rectangle& other);
     Rectangle& operator=(const Rectangle& other);
     
-    double area() const;
-    double perimeter() const;
-    double getSide_a() const;
-    void setSide_a(double side_a);
-    double getSide_b() const;
-    void setSide_b(double side_b);
+    int area() const;
+    int perimeter() const;
+
+    int getSide_b() const;
+    void setSide_b(int side_b);
+
     void display() const; 
 };
 
-#endif // RECTANGLE_H
+#endif

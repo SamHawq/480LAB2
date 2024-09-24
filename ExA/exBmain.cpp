@@ -1,5 +1,10 @@
-// exBmain.cpp
-// ENSF 480 - Lab 2 - Exercise A
+/* 
+* File Name: exBmain.cpp
+* Assignment: Lab 2 Exercise A
+* Lab Section: B02
+* Completed by: Samiul Haque, Elias Poitras-Whitecalf
+* Development Date: Sept 23, 2024
+*/
 #include <assert.h>
 #include <iostream>
 #include "dictionaryList.h"
