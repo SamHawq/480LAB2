@@ -26,9 +26,6 @@ Point::Point(int x, int y)
 //dtor
 Point::~Point(){}
 
-
-//DELETE LATER IF NOT NEEDED Point::Point(const Point& other) : x(other.x), y(other.y), id(other.id){}
-
 //assignment op
 Point& Point::operator=(const Point& other) {
     if (this != &other) {

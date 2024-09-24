@@ -84,11 +84,3 @@ int main() {
     gw.run(); // Call the run() method
     return 0; // Return success
 }
-
-//things left to fix
-
-/*
-* go through lab doc and make sure little things right
-* make sure coordinate print in proper format
-* add headers w names and dates
-*/

@@ -17,7 +17,6 @@ private:
 
 public:
     Point(int x, int y);
-    //DELETE IF NOT NEEDEDPoint(const Point& other);
     ~Point();
     Point& operator=(const Point& other);
 
